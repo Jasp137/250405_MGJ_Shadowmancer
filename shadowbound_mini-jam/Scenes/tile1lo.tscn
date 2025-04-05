@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvqajb5py1ho6"]
+
+[ext_resource type="PackedScene" uid="uid://fcd1rsswsnb8" path="res://Meshes/Rocks/Tile_1_lo.glb" id="1_mfrr8"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Tile_1_lo2" parent="." instance=ExtResource("1_mfrr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.184848, -0.283267, -0.16389)
