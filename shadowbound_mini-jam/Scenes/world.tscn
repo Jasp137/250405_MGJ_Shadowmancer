@@ -98,5 +98,7 @@ range = 15.0
 
 [node name="Crystal3" parent="." instance=ExtResource("2_go701")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68547, 0.825632, -16.8368)
-flash_duration = 0.3
-flash_interval = 1.0
+always_on = false
+flash_duration = 0.1
+flash_interval = 2.0
+range = 12.0
