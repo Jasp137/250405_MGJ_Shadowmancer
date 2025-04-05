@@ -7,6 +7,7 @@ extends StaticBody3D
 var sequence_pointer: int = 0
 @export var light_energy: float = 5.0
 @onready var ray: RayCast3D = $RayCast3D
+var is_flashing: bool = false
 
 @export var range: float = 10.0
 
@@ -28,8 +29,11 @@ func step_sequence() -> void:
 		# telegraph next step
 		telegraph()
 
+func set_flashing():
+	is_flashing = true
 
 func switch_off():
+	is_flashing = false
 	light.hide()
 
 func telegraph():
@@ -40,19 +44,30 @@ func telegraph():
 	tween.tween_property(light, "omni_range", range * 0.4, World.heartbeat_interval/2).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(light, "omni_range", 0.0, World.heartbeat_interval/2).set_trans(Tween.TRANS_SINE)
 
-func check_player_hit():
+func _physics_process(delta: float) -> void:
+	if not (is_flashing or always_on):
+		return
 	var player: CharacterBody3D = $"../Player"
-	var ray: RayCast3D = $RayCast3D
-	ray.target_position =  player.global_position - self.position
-	var collider = ray.get_collider()
-	print(collider)
+	if not player is Player:
+		return
+	var player_direction = (player.global_position - self.global_position).normalized()
+	var space_state = get_world_3d().direct_space_state
+	var origin = self.global_position
+	var end = origin + player_direction * range
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	var result = space_state.intersect_ray(query)
+	if "collider" not in result:
+		return
+	if result["collider"] is Player:
+		print("We got hit")
+		player.handle_hit()
 	
 func flash():
 	light.show()
 	var tween = get_tree().create_tween()
+	$AudioStreamPlayer3D.play()
 	tween.tween_property(light, "omni_range", range, flash_duration).set_trans(Tween.TRANS_SINE)
-	tween.tween_callback(check_player_hit)
-	
+	tween.tween_callback(set_flashing)
 	light.light_energy = light_energy * 1.0
 
-	get_tree().create_timer(flash_duration).timeout.connect(switch_off)
+	get_tree().create_timer(flash_duration * 3).timeout.connect(switch_off)
