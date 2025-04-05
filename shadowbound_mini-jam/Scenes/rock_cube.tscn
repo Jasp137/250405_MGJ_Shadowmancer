@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbhtihj1bgbr1"]
+
+[ext_resource type="PackedScene" uid="uid://jdsdnrexj2ys" path="res://Meshes/Rocks/Cube_lo.glb" id="1_8thlu"]
+
+[node name="RockCube" type="Node3D"]
+
+[node name="Cube_lo2" parent="." instance=ExtResource("1_8thlu")]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, -0.620701, 0, -0.65289)
