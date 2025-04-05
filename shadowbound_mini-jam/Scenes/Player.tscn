@@ -1,19 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds1lwhlic3og3"]
+[gd_scene load_steps=5 format=3 uid="uid://ds1lwhlic3og3"]
 
 [ext_resource type="Script" uid="uid://041o5lxjwga" path="res://Scripts/player_character.gd" id="1_rpqav"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
-albedo_color = Color(0.993531, 0.375579, 1, 1)
-emission_enabled = true
-emission = Color(0.498039, 0, 0.596078, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gv5m4"]
-material = SubResource("StandardMaterial3D_fj7yv")
+[ext_resource type="PackedScene" uid="uid://c4yp7jks5pmka" path="res://Scenes/character maps texture.glb" id="2_kyqiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f3sb7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpqav"]
-bg_color = Color(0.259294, 0.259294, 0.259294, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -22,9 +14,6 @@ corner_radius_bottom_left = 8
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rpqav")
 speed = 15.0
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_gv5m4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_f3sb7")
@@ -47,6 +36,15 @@ theme_override_colors/font_outline_color = Color(0.752941, 0.568627, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_rpqav")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="GameOver" type="Label" parent="."]
 visible = false
 anchors_preset = 8
@@ -65,3 +63,6 @@ theme_override_colors/font_outline_color = Color(0.752941, 0.568627, 0, 1)
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_rpqav")
 text = "SHADOW EXTINGUISHED"
+
+[node name="Mesh" parent="." instance=ExtResource("2_kyqiw")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.00500458, -1.76104, 0.0752758)

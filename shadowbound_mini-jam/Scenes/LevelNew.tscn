@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk3dkp33i46n2"]
+[gd_scene load_steps=12 format=3 uid="uid://bwhy54wdoq2vq"]
 
-[ext_resource type="PackedScene" uid="uid://becemipy7mgm1" path="res://Scenes/RockOuterCorner.tscn" id="1_e0l7r"]
+[ext_resource type="PackedScene" path="res://Scenes/RockOuterCorner.tscn" id="1_e0l7r"]
 [ext_resource type="PackedScene" uid="uid://bjgm2t874vcyy" path="res://Scenes/Rock1.tscn" id="2_up1v1"]
-[ext_resource type="PackedScene" uid="uid://bbhtihj1bgbr1" path="res://Scenes/rock_cube.tscn" id="3_rerwo"]
-[ext_resource type="PackedScene" uid="uid://dfai5m7rk5dd8" path="res://Scenes/Rock2Version.tscn" id="3_vk0dx"]
+[ext_resource type="PackedScene" path="res://Scenes/rock_cube.tscn" id="3_rerwo"]
+[ext_resource type="PackedScene" path="res://Scenes/Rock2Version.tscn" id="3_vk0dx"]
 [ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="4_rerwo"]
-[ext_resource type="PackedScene" uid="uid://d4ldhbc6pyyq2" path="res://Scenes/Rock3Version.tscn" id="4_up1v1"]
+[ext_resource type="PackedScene" path="res://Scenes/Rock3Version.tscn" id="4_up1v1"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="5_ivkqf"]
+[ext_resource type="AudioStream" uid="uid://ba62j1pmv3gj8" path="res://Sounds/heartbeat.wav" id="8_ivkqf"]
+[ext_resource type="Script" uid="uid://nh4sy7bpv82x" path="res://Scripts/heartbeat_player.gd" id="9_7b51l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fuudy"]
 
@@ -304,3 +306,7 @@ range = 5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_up1v1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ivkqf")
+script = ExtResource("9_7b51l")
