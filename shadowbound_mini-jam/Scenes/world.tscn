@@ -91,4 +91,12 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Crystal2" parent="." instance=ExtResource("2_go701")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75583, 1.13981, 4.54952)
+transform = Transform3D(0.930232, 0, -0.366972, 0, 1, 0, 0.366972, 0, 0.930232, -5.75583, 0.825632, 4.54952)
+flash_duration = 0.3
+flash_interval = 1.0
+range = 15.0
+
+[node name="Crystal3" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68547, 0.825632, -16.8368)
+flash_duration = 0.3
+flash_interval = 1.0
