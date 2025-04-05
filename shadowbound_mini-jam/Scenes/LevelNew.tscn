@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk3dkp33i46n2"]
+[gd_scene load_steps=8 format=3 uid="uid://bk3dkp33i46n2"]
 
 [ext_resource type="PackedScene" uid="uid://becemipy7mgm1" path="res://Scenes/RockOuterCorner.tscn" id="1_e0l7r"]
 [ext_resource type="PackedScene" uid="uid://bjgm2t874vcyy" path="res://Scenes/Rock1.tscn" id="2_up1v1"]
 [ext_resource type="PackedScene" uid="uid://dfai5m7rk5dd8" path="res://Scenes/Rock2Version.tscn" id="3_vk0dx"]
 [ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="4_rerwo"]
+[ext_resource type="PackedScene" uid="uid://d4ldhbc6pyyq2" path="res://Scenes/Rock3Version.tscn" id="4_up1v1"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="5_ivkqf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fuudy"]
@@ -68,7 +69,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, 
 [node name="Rock10" parent="WallBack" instance=ExtResource("2_up1v1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, -40)
 
+[node name="Rock11" parent="WallBack" instance=ExtResource("2_up1v1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -34)
+
 [node name="WallLeft" type="Node3D" parent="."]
+transform = Transform3D(1, -0.000377088, -0.000114167, 0.000377066, 1, -0.000142262, 0.000114241, 0.000142203, 1, 0, 0, 0)
 
 [node name="Rock1" parent="WallLeft" instance=ExtResource("2_up1v1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 2)
@@ -136,6 +141,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -8)
 [node name="Rock2" parent="WallLeft" instance=ExtResource("3_vk0dx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -34)
 
+[node name="Rock21" parent="WallLeft" instance=ExtResource("4_up1v1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 0, -30.0895)
+
+[node name="Rock22" parent="WallLeft" instance=ExtResource("4_up1v1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, -26.0895)
+
+[node name="RockOuterCorner5" parent="WallLeft" instance=ExtResource("1_e0l7r")]
+transform = Transform3D(1, 0, 4.76995e-08, 0, 1, 0, -4.76995e-08, 0, 1, -11, 0, -28)
+
+[node name="RockOuterCorner6" parent="WallLeft" instance=ExtResource("1_e0l7r")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -11, 0, -24)
+
 [node name="WallRight" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -10)
 
@@ -195,6 +212,20 @@ transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -11, 0, 
 
 [node name="RockOuterCorner" parent="WallRight" instance=ExtResource("1_e0l7r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -8)
+
+[node name="Rock22" parent="WallRight" instance=ExtResource("4_up1v1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 0, 25.9105)
+
+[node name="Rock23" parent="WallRight" instance=ExtResource("4_up1v1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -12, 0, 27.9105)
+
+[node name="WallMiddle" type="Node3D" parent="."]
+
+[node name="Rock22" parent="WallMiddle" instance=ExtResource("4_up1v1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0, -26.0895)
+
+[node name="Rock23" parent="WallMiddle" instance=ExtResource("4_up1v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -26.0895)
 
 [node name="Player" parent="." instance=ExtResource("4_rerwo")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.282782, 0.784655, -37.5418)
