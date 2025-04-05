@@ -41,8 +41,8 @@ func telegraph():
 	light.light_energy = light_energy * 0.25
 	var tween = get_tree().create_tween()
 	light.omni_range = 0
-	tween.tween_property(light, "omni_range", range * 0.4, World.heartbeat_interval/2).set_trans(Tween.TRANS_SINE)
-	tween.tween_property(light, "omni_range", 0.0, World.heartbeat_interval/2).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(light, "omni_range", range * 0.4, flash_duration).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(light, "omni_range", 0.0, flash_duration).set_trans(Tween.TRANS_SINE)
 
 func _physics_process(delta: float) -> void:
 	if not (is_flashing or always_on):
@@ -59,7 +59,6 @@ func _physics_process(delta: float) -> void:
 	if "collider" not in result:
 		return
 	if result["collider"] is Player:
-		print("We got hit")
 		player.handle_hit()
 	
 func flash():
@@ -68,6 +67,8 @@ func flash():
 	$AudioStreamPlayer3D.play()
 	tween.tween_property(light, "omni_range", range, flash_duration).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(set_flashing)
+	tween.tween_property(light, "omni_range", 0, flash_duration).set_trans(Tween.TRANS_SINE)
+
 	light.light_energy = light_energy * 1.0
 
 	get_tree().create_timer(flash_duration * 3).timeout.connect(switch_off)

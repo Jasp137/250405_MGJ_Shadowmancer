@@ -1,11 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://g8jcyj70y5sm"]
+[gd_scene load_steps=11 format=3 uid="uid://g8jcyj70y5sm"]
 
 [ext_resource type="PackedScene" path="res://Scenes/RockOuterCorner.tscn" id="1_fuudy"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="1_vsvp5"]
 [ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="2_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="3_8rbpu"]
+[ext_resource type="AudioStream" uid="uid://ba62j1pmv3gj8" path="res://Sounds/heartbeat.wav" id="5_tj5wv"]
+[ext_resource type="Script" uid="uid://c7ejsg7eebkst" path="res://Scenes/audio_stream_player.gd" id="5_xylue"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fuudy"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_tj5wv"]
+
+[sub_resource type="Sky" id="Sky_ienac"]
+sky_material = SubResource("PhysicalSkyMaterial_tj5wv")
+
+[sub_resource type="Environment" id="Environment_tj5wv"]
+sky = SubResource("Sky_ienac")
+ambient_light_source = 3
+ambient_light_color = Color(0.263763, 0.00081572, 0.5774, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.15
 
 [node name="Level" type="Node3D"]
 
@@ -112,3 +126,10 @@ range = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9508, 0, -16.3437)
 always_on = false
 range = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tj5wv")
+script = ExtResource("5_xylue")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tj5wv")

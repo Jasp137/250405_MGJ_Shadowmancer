@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdgb7baf7tn53"]
+[gd_scene load_steps=9 format=3 uid="uid://cdgb7baf7tn53"]
 
 [ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="2_go701"]
+[ext_resource type="AudioStream" uid="uid://ba62j1pmv3gj8" path="res://Sounds/heartbeat.wav" id="3_5a7ea"]
+[ext_resource type="Script" uid="uid://nh4sy7bpv82x" path="res://Scripts/heartbeat_player.gd" id="4_8j60k"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]
 
@@ -89,3 +91,8 @@ range = 12.0
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.221869, 0.825632, 25.9808)
 always_on = false
 range = 12.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5a7ea")
+volume_db = 24.0
+script = ExtResource("4_8j60k")
