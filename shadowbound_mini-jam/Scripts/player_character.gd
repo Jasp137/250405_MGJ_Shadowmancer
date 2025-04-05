@@ -1,13 +1,44 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
+@export var post_hit_invincibility_duration = 3.0
 @export var speed : float = 5.0
 @export var rotation_speed : float = 5.0
+@export var hitpoints: int = 3
+var invincible: bool = false
 
 var target_rotation : float = 0.0
+
+func _ready() -> void:
+	_update_hp_label()
+
+func _update_hp_label():
+	if hitpoints > 0:
+		$Hitpoints.text = "HP: " + str(hitpoints)
+	else:
+		$Hitpoints.text = "You're Dead. Sorry."
+	
+func remove_invincibility():
+	self.invincible = false
+
+func handle_hit():
+	if invincible:
+		return
+	hitpoints -= 1
+	_update_hp_label()
+	# add invincibility cooldown
+	invincible = true
+	get_tree().create_timer(post_hit_invincibility_duration).timeout.connect(remove_invincibility)
+	
+	if hitpoints <= 0:
+		$GameOver.show()
+		$Mesh.hide()
+		print("Dead")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Get input from the WASD keys
+	if hitpoints <= 0:
+		return
 	var input_dir = Vector3.ZERO
 
 	if Input.is_action_pressed("character_right"): # D key or right arrow

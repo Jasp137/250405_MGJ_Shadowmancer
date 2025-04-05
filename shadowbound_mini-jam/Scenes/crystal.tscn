@@ -75,7 +75,7 @@ light_energy = 0.031
 light_specular = 0.338
 shadow_enabled = true
 omni_range = 10.0
-omni_attenuation = -3.182
+omni_attenuation = -1.0
 
 [node name="MeshPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0, 0)

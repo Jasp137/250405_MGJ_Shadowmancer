@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://g8jcyj70y5sm"]
 
-[ext_resource type="PackedScene" uid="uid://becemipy7mgm1" path="res://Scenes/RockOuterCorner.tscn" id="1_fuudy"]
+[ext_resource type="PackedScene" path="res://Scenes/RockOuterCorner.tscn" id="1_fuudy"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="1_vsvp5"]
-[ext_resource type="PackedScene" uid="uid://bjgm2t874vcyy" path="res://Scenes/Rock1.tscn" id="2_8rbpu"]
+[ext_resource type="PackedScene" path="res://Scenes/Rock1.tscn" id="2_8rbpu"]
 [ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="3_8rbpu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_fuudy"]

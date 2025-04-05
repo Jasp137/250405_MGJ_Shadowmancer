@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds1lwhlic3og3"]
+[gd_scene load_steps=6 format=3 uid="uid://ds1lwhlic3og3"]
 
 [ext_resource type="Script" uid="uid://041o5lxjwga" path="res://Scripts/player_character.gd" id="1_rpqav"]
 
@@ -12,11 +12,18 @@ material = SubResource("StandardMaterial3D_fj7yv")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f3sb7"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpqav"]
+bg_color = Color(0.259294, 0.259294, 0.259294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rpqav")
 speed = 15.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_gv5m4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -27,3 +34,34 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Hitpoints" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.828821, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.752941, 0.568627, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpqav")
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -21.0
+offset_right = 178.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.828821, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.752941, 0.568627, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpqav")
+text = "SHADOW EXTINGUISHED"

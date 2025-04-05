@@ -69,7 +69,6 @@ shape = SubResource("BoxShape3D_fj7yv")
 [node name="Crystal2" parent="." instance=ExtResource("2_go701")]
 transform = Transform3D(2.7907, 0, -1.10092, 0, 3, 0, 1.10092, 0, 2.7907, -5.75583, 0.825632, 4.54952)
 flash_duration = 0.3
-range = 15.0
 
 [node name="Crystal4" parent="." instance=ExtResource("2_go701")]
 transform = Transform3D(2.7907, 0, -1.10092, 0, 3, 0, 1.10092, 0, 2.7907, -12.9442, 0.825632, -9.41843)
@@ -81,18 +80,12 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.68547, 0.825632, -16.8368)
 always_on = false
 range = 12.0
 
-[node name="Crystal5" parent="." instance=ExtResource("2_go701")]
-transform = Transform3D(1.28827, 0, -3.78687, 0, 4, 0, 3.78687, 0, 1.28827, 9.07878, 0.825632, -1.38474)
+[node name="Crystal6" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 30.151, 0.825632, 12.2886)
 always_on = false
-sequence = Array[bool]([true, false])
 range = 12.0
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "You got hit!"
+[node name="Crystal7" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.221869, 0.825632, 25.9808)
+always_on = false
+range = 12.0
