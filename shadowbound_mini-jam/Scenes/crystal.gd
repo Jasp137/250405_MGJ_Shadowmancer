@@ -65,6 +65,7 @@ func _physics_process(delta: float) -> void:
 func flash():
 	light.show()
 	var tween = get_tree().create_tween()
+	$AudioStreamPlayer3D.play()
 	tween.tween_property(light, "omni_range", range, flash_duration).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(set_flashing)
 	light.light_energy = light_energy * 1.0

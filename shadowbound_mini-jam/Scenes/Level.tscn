@@ -91,7 +91,7 @@ transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -11, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -8)
 
 [node name="Player" parent="." instance=ExtResource("3_8rbpu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.282782, 0.784655, -37.5418)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.282782, 0.784655, -37.5418)
 
 [node name="Crystal3" parent="." instance=ExtResource("1_vsvp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.55166, 0, -28.584)

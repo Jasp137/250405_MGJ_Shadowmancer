@@ -3,19 +3,30 @@ class_name Player extends CharacterBody3D
 @export var post_hit_invincibility_duration = 3.0
 @export var speed : float = 5.0
 @export var rotation_speed : float = 5.0
-@export var hitpoints: int = 3
+@export var starting_hitpoints: int = 3
+var hitpoints = 3
 var invincible: bool = false
+var starting_position: Vector3
 
 var target_rotation : float = 0.0
 
 func _ready() -> void:
 	_update_hp_label()
+	starting_position = position
+
+func reset():
+	hitpoints = starting_hitpoints
+	position = starting_position
+	_update_hp_label()
+	$GameOver.hide()
+	$Mesh.show()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action("restart"):
+		reset()
 
 func _update_hp_label():
-	if hitpoints > 0:
-		$Hitpoints.text = "HP: " + str(hitpoints)
-	else:
-		$Hitpoints.text = "You're Dead. Sorry."
+	$Hitpoints.text = "HP: " + str(hitpoints)
 	
 func remove_invincibility():
 	self.invincible = false
@@ -24,6 +35,7 @@ func handle_hit():
 	if invincible:
 		return
 	hitpoints -= 1
+	hitpoints = max(0, hitpoints) # clamo to 0
 	_update_hp_label()
 	# add invincibility cooldown
 	invincible = true
@@ -32,7 +44,6 @@ func handle_hit():
 	if hitpoints <= 0:
 		$GameOver.show()
 		$Mesh.hide()
-		print("Dead")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -56,6 +67,8 @@ func _process(delta):
 	# Move the character in the isometric direction (X and Z are the main axes in the top-down view)
 	velocity.x = input_dir.x * speed
 	velocity.z = input_dir.z * speed
+	# Rotate vector with character
+	velocity = velocity.rotated(Vector3.UP, self.rotation.y)
 
 	# Apply the movement using move_and_slide
 	move_and_slide()
