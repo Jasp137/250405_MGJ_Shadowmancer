@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Shadowbound_Mini Jam"
-run/main_scene="uid://cdgb7baf7tn53"
+run/main_scene="uid://g8jcyj70y5sm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+World="*res://Scripts/world.gd"
 
 [input]
 

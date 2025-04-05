@@ -1,22 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdgb7baf7tn53"]
+[gd_scene load_steps=7 format=3 uid="uid://cdgb7baf7tn53"]
 
-[ext_resource type="Script" uid="uid://041o5lxjwga" path="res://Scripts/player_character.gd" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://ds1lwhlic3og3" path="res://Scenes/Player.tscn" id="1_go701"]
 [ext_resource type="PackedScene" uid="uid://cqxuxtj764hmy" path="res://Scenes/crystal.tscn" id="2_go701"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gv5m4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_f3sb7"]
 size = Vector2(20, 20)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
-albedo_color = Color(0.993531, 0.375579, 1, 1)
-emission_enabled = true
-emission = Color(0.498039, 0, 0.596078, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_gv5m4"]
-material = SubResource("StandardMaterial3D_fj7yv")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f3sb7"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
 
@@ -33,25 +23,11 @@ shape = SubResource("WorldBoundaryShape3D_gv5m4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_f3sb7")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_go701")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0686, 0)
-script = ExtResource("1_a02cp")
-speed = 15.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_gv5m4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-shape = SubResource("CapsuleShape3D_f3sb7")
-
-[node name="CameraPivot" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(0.49098, 0, -4.35585, 0, 5, 0, 0.871171, 0, 2.4549, -0.714971, 1.92459, -8.43845)
+transform = Transform3D(0.918288, 0, -1.97957, 0, 5, 0, 0.395914, 0, 4.59144, 5.01299, 1.92459, 0.958999)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -61,7 +37,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.150588, 0, -4.94298, 0, 5, 0, 0.988597, 0, -0.752939, 3.89715, 1.92459, -9.37545)
+transform = Transform3D(0.917783, 0, -1.98542, 0, 5, 0, 0.397084, 0, 4.58891, -11.4226, 1.92459, -2.47812)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D2"]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -71,7 +47,7 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Wall" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.684547, 0, -3.64484, 0, 5, 0, 0.728969, 0, -3.42274, -6.13684, 1.92459, -3.85789)
+transform = Transform3D(-0.684547, 0, -3.64484, 0, 5, 0, 0.728969, 0, -3.42274, -9.49329, 1.92459, -13.2726)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Wall"]
 mesh = SubResource("BoxMesh_f3sb7")
@@ -91,14 +67,32 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_fj7yv")
 
 [node name="Crystal2" parent="." instance=ExtResource("2_go701")]
-transform = Transform3D(0.930232, 0, -0.366972, 0, 1, 0, 0.366972, 0, 0.930232, -5.75583, 0.825632, 4.54952)
+transform = Transform3D(2.7907, 0, -1.10092, 0, 3, 0, 1.10092, 0, 2.7907, -5.75583, 0.825632, 4.54952)
 flash_duration = 0.3
-flash_interval = 1.0
+range = 15.0
+
+[node name="Crystal4" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(2.7907, 0, -1.10092, 0, 3, 0, 1.10092, 0, 2.7907, -12.9442, 0.825632, -9.41843)
+flash_duration = 0.3
 range = 15.0
 
 [node name="Crystal3" parent="." instance=ExtResource("2_go701")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68547, 0.825632, -16.8368)
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 2.68547, 0.825632, -16.8368)
 always_on = false
-flash_duration = 0.1
-flash_interval = 2.0
 range = 12.0
+
+[node name="Crystal5" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(1.28827, 0, -3.78687, 0, 4, 0, 3.78687, 0, 1.28827, 9.07878, 0.825632, -1.38474)
+always_on = false
+sequence = Array[bool]([true, false])
+range = 12.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "You got hit!"
