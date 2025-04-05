@@ -4,6 +4,7 @@ class_name Player extends CharacterBody3D
 @export var speed : float = 5.0
 @export var rotation_speed : float = 5.0
 @export var starting_hitpoints: int = 3
+@export var acceleration: float = 10.0
 var hitpoints = 3
 var invincible: bool = false
 var starting_position: Vector3
@@ -51,7 +52,7 @@ func _process(delta):
 	if hitpoints <= 0:
 		return
 	var input_dir = Vector3.ZERO
-
+	var desired_velocity: Vector3 = Vector3.ZERO
 	if Input.is_action_pressed("character_right"): # D key or right arrow
 		input_dir.x += 1
 	if Input.is_action_pressed("character_left"): # A key or left arrow
@@ -65,10 +66,12 @@ func _process(delta):
 	input_dir = input_dir.normalized()
 
 	# Move the character in the isometric direction (X and Z are the main axes in the top-down view)
-	velocity.x = input_dir.x * speed
-	velocity.z = input_dir.z * speed
+	desired_velocity.x = input_dir.x * speed
+	desired_velocity.z = input_dir.z * speed
 	# Rotate vector with character
-	velocity = velocity.rotated(Vector3.UP, self.rotation.y)
-
+	desired_velocity = desired_velocity.rotated(Vector3.UP, self.rotation.y)
+	var diff =  desired_velocity - velocity
+	diff *= min(acceleration * delta, 1.0)
+	velocity += diff
 	# Apply the movement using move_and_slide
 	move_and_slide()
