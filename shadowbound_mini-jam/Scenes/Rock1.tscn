@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjgm2t874vcyy"]
+[gd_scene load_steps=3 format=3 uid="uid://bjgm2t874vcyy"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_10cf1"]
+[ext_resource type="PackedScene" uid="uid://blwrq2nimqw52" path="res://Meshes/Rocks/Wall_1_lo.glb" id="1_0ppeq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5l8bh"]
 
 [node name="Rock1" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2, -0.5, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_10cf1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502569, 0)
+shape = SubResource("BoxShape3D_5l8bh")
+
+[node name="Wall_1_lo2" parent="." instance=ExtResource("1_0ppeq")]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, -0.680369, 0, -0.0515726)

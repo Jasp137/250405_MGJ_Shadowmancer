@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Shadowbound_Mini Jam"
-run/main_scene="uid://g8jcyj70y5sm"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
