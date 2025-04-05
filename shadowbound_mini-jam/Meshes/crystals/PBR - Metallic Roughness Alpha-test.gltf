@@ -1,0 +1,214 @@
+{
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 30126,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 5157,
+      "max": [
+        8.13212394714355,
+        2.03726768493652,
+        1.31987762451172
+      ],
+      "min": [
+        7.73843717575073,
+        0.568331480026245,
+        1.03884899616241
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 5157,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 5157,
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 5157,
+      "type": "VEC2"
+    }
+  ],
+  "asset": {
+    "generator": "Adobe Substance 3D Painter 9.1.1",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 120504,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 61884,
+      "byteOffset": 120504,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 61884,
+      "byteOffset": 182388,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 82512,
+      "byteOffset": 244272,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 41256,
+      "byteOffset": 326784,
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 368040,
+      "uri": "PBR - Metallic Roughness Alpha-test.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "Crystal_low-0023_baseColor_1001.png"
+    },
+    {
+      "uri": "Crystal_low-0023_occlusionRoughnessMetallic_1001.png"
+    },
+    {
+      "uri": "Crystal_low-0023_normal_1001.png"
+    },
+    {
+      "uri": "Crystal_low-0023_emissive_1001.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "OPAQUE",
+      "emissiveFactor": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "emissiveTexture": {
+        "index": 3
+      },
+      "name": "Crystal_low-0023_1001",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Crystal_lo",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 2,
+            "POSITION": 1,
+            "TANGENT": 3,
+            "TEXCOORD_0": 4
+          },
+          "indices": 0,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode",
+      "scale": [
+        0.0253999996930361,
+        0.0253999996930361,
+        0.0253999996930361
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Crystal_lo",
+      "rotation": [
+        2.1855694143369e-08,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.393700987100601,
+        0.393700987100601,
+        0.393700987100601
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "Crystal_lo"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9985,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}
